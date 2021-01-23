@@ -11,10 +11,13 @@ app.get('/', (req, res) => {
     res.send('index');
 });
 app.get('/Start', (req, res) => {
-  console.log("Request Received")
-  res.send('index');
+  console.log(req.connection.remoteAddress)
+  res.send("ACK");
 });
-
+app.get('/Para', (req, res) => {
+  console.log("Para Request Received")
+  res.json({ Disp: '23' });
+});
 // app.get('/setdata', (req, res) => {
 //   var data={
 //       Data:30,

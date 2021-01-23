@@ -8,6 +8,7 @@ const EXPRef = database.ref('/'+EXP);
 
 
 EXPRef.on('value', snapshot => {
+    var disp=0, disp=0
     var data = snapshot.val();
     if (data.Run==1){
      console.log(EXP+": Start")
@@ -16,6 +17,12 @@ EXPRef.on('value', snapshot => {
     else if(data.Run==0){
       console.log(EXP+": Stop") 
       fb_ops.fetchip(ip,"/Stop",EXP)
+    }
+    else if(data.Run==3){
+      console.log(EXP+": Para") 
+      disp=data.Displacement
+      length=data.Length  
+      fb_ops.fetchip(ip,"/Para?A="+disp+"&B="+length,EXP)
     }
 }); 
 //....................................................................................

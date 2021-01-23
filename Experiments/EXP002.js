@@ -6,7 +6,6 @@ const fb_ops=require('../firebase/firebase_operations');
 const database = admin.database();
 const EXPRef = database.ref('/'+EXP);
 
-
 EXPRef.on('value', snapshot => {
     var data = snapshot.val();
     if (data.Run==1){
@@ -17,7 +16,6 @@ EXPRef.on('value', snapshot => {
       console.log(EXP+": Stop") 
       fb_ops.fetchip(ip,"/Stop",EXP)
     }
-    
 }); 
 //....................................................................................
 
