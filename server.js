@@ -1,23 +1,22 @@
 const express = require('express');
 const EXPRef001=require('./Experiments/EXP001');
 const EXPRef002=require('./Experiments/EXP002');
+const VideoStream=require('../Fahis2021-main/EXPVideoStream/EXP001Stream')
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 app.use(express.static('public'));
-
+VideoStream.StartStream();
 app.get('/', (req, res) => {
     res.send('index');
 });
 app.get('/Start', (req, res) => {
-  console.log(req.connection.remoteAddress)
-  res.send("ACK");
+  console.log("Request Received")
+  
+  res.send('index');
 });
-app.get('/Para', (req, res) => {
-  console.log("Para Request Received")
-  res.json({ Disp: '23' });
-});
+
 // app.get('/setdata', (req, res) => {
 //   var data={
 //       Data:30,

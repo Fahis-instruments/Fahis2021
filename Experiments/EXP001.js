@@ -3,6 +3,7 @@ const EXP="EXP001"
 const fetch = require("node-fetch");
 const admin= require('../firebase/firebaseConnection');
 const fb_ops=require('../firebase/firebase_operations');
+const VideoStream=require('../EXPVideoStream/EXP001Stream.js')
 const database = admin.database();
 const EXPRef = database.ref('/'+EXP);
 
@@ -17,6 +18,10 @@ EXPRef.on('value', snapshot => {
     else if(data.Run==0){
       console.log(EXP+": Stop") 
       fb_ops.fetchip(ip,"/Stop",EXP)
+    }
+    else if(data.Run==10){
+      VideoStream.ClearAllLinks();
+      VideoStream.GenerateLink()
     }
     else if(data.Run==3){
       console.log(EXP+": Para") 
