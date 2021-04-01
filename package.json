@@ -24,6 +24,8 @@
     "lodash": "^4.17.20",
     "mongoose": "^5.9.10",
     "morgan": "^1.10.0",
-    "node-fetch": "^2.6.1"
+    "ngrok": "^4.0.0",
+    "node-fetch": "^2.6.1",
+    "node-media-server": "^2.2.4"
   }
 }
